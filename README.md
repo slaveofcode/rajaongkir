@@ -30,7 +30,7 @@ you can use it by Django, Flask or any framework you used.
 
 ## Run The Test
 
-I using unittest to test the whole functionality of RajaOngkirApi class, 
+I'm using unittest to test the whole functionality of RajaOngkirApi class, 
 you can run it by using console or set your test in pycharm using Unittest configuration
  
 Please take a not you must set your `API_KEY` inside of rajaongkirapi_tests.py to make sure the api works
