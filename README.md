@@ -7,9 +7,11 @@ you can use it by Django, Flask or any framework you used.
 If you have no `ApiKey` you can create one here: [http://rajaongkir.com/akun/daftar](http://rajaongkir.com/akun/daftar)
  
 ## Install
-    pip install git+ssh://git@github.com/slaveofcode/rajaongkir@master
+    # Directly install from last stable release
     
-    or with official pypi
+    pip install git+ssh://git@github.com/slaveofcode/rajaongkir@1.0.1
+    
+    #Or with official pypi
     
     pip install rajaongkir
  
