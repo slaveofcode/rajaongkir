@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/slaveofcode/rajaongkir.svg?branch=v1.0.1)](https://travis-ci.org/slaveofcode/rajaongkir)
+
 # rajaongkir
 Simple Python module to grab api data from rajaongkir.com (http://rajaongkir.com/dokumentasi/starter), 
 you can use it by Django, Flask or any framework you used.
