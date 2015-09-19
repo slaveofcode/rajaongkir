@@ -8,6 +8,10 @@ If you have no `ApiKey` you can create one here: [http://rajaongkir.com/akun/daf
  
 ## Install
     pip install git+ssh://git@github.com/slaveofcode/rajaongkir@master
+    
+    or with official pypi
+    
+    pip install rajaongkir
  
 ## How to Use ?
 
