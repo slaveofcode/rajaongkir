@@ -1,6 +1,8 @@
 # rajaongkir
-Simple Python class to grab api data from rajaongkir.com (http://rajaongkir.com/dokumentasi/starter), 
+Simple Python module to grab api data from rajaongkir.com (http://rajaongkir.com/dokumentasi/starter), 
 you can use it by Django, Flask or any framework you used.
+
+If you have no `ApiKey` you can create one here: [http://rajaongkir.com/akun/daftar](http://rajaongkir.com/akun/daftar)
  
 ## Install
     pip install git+ssh://git@github.com/slaveofcode/rajaongkir@master
@@ -42,5 +44,18 @@ Here's some sample while you runs the test over the console or terminal
     >> Ran 7 tests in 4.322s
     
     >> OK
+    
+Other choice you can run the test by using nosetests, make sure nosetest already installed, 
+or you can run command `pip install nose` to install them
+
+    >> nosetests
+    
+    >> ----------------------------------------------------------------------
+    
+    >> Ran 7 tests in 4.899s
+    
+    >> OK
+
+    
 
     
