@@ -7,7 +7,10 @@ sys.path.append(base_dir)
 
 from api import RajaOngkirApi
 
-api_key = u'SetYourApiKeyHereBeforeRunningTest'
+# Please don't use this api_key for your production, this key will be deleted or changed someday,
+# you should set with your api key below here, this api_key just used for travis-ci build test
+# to make sure the service is working
+api_key = u'87b3dd79958a2e5b81f2598e90026301'
 
 
 class RajaOngkirTests(TestCase):
