@@ -169,7 +169,7 @@ class RajaOngkirApi(object):
 
         return self.__parse(city)
 
-    def city_by_province(self, province_id):
+    def cities_by_province(self, province_id):
         """Get specific city by province id
 
         :param province_id:

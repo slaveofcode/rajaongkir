@@ -38,7 +38,7 @@ class RajaOngkirTests(TestCase):
         self.assertEqual(type(city), dict)
 
     def test_city_by_province(self):
-        city = self.api.city_by_province(9)  # Jawa Barat
+        city = self.api.cities_by_province(9)  # Jawa Barat
         self.assertEqual(type(city), list)
 
     def test_cost_between_city(self):
