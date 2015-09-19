@@ -9,7 +9,7 @@ If you have no `ApiKey` to use, you can create one here: [http://rajaongkir.com/
 ## Install
     # Directly install from last stable release
     
-    pip install git+ssh://git@github.com/slaveofcode/rajaongkir@1.0.1
+    pip install git+ssh://git@github.com/slaveofcode/rajaongkir@1.0.2
     
     # Or with official pypi
     
