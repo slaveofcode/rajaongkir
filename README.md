@@ -4,7 +4,7 @@
 Simple Python module to grab api data from rajaongkir.com (http://rajaongkir.com/dokumentasi/starter), 
 you can use it by Django, Flask or any framework you used.
 
-If you have no `ApiKey` you can create one here: [http://rajaongkir.com/akun/daftar](http://rajaongkir.com/akun/daftar)
+If you have no `ApiKey` to use, you can create one here: [http://rajaongkir.com/akun/daftar](http://rajaongkir.com/akun/daftar)
  
 ## Install
     # Directly install from last stable release
