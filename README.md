@@ -17,7 +17,7 @@ If you have no `ApiKey` to use, you can create one here: [http://rajaongkir.com/
  
 ## How to Use ?
 
-    from api import RajaOngkirApi
+    from rajaongkir import RajaOngkirApi
     
     # initialization
     api = RajaOngkirApi(api_key='YourRajaOngkirApiKeyHere')
