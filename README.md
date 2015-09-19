@@ -11,13 +11,13 @@ If you have no `ApiKey` to use, you can create one here: [http://rajaongkir.com/
     
     pip install git+ssh://git@github.com/slaveofcode/rajaongkir@1.0.1
     
-    #Or with official pypi
+    # Or with official pypi
     
     pip install rajaongkir
  
 ## How to Use ?
 
-    from rajaongkir.api import RajaOngkirApi
+    from api import RajaOngkirApi
     
     # initialization
     api = RajaOngkirApi(api_key='YourRajaOngkirApiKeyHere')
@@ -43,7 +43,7 @@ If you have no `ApiKey` to use, you can create one here: [http://rajaongkir.com/
 I'm using unittest to test the whole functionality of RajaOngkirApi class, 
 you can run it by using console or set your test in pycharm using Unittest configuration
  
-Please take a not you must set your `API_KEY` inside of rajaongkirapi_tests.py to make sure the api works
+Please take a note you must set your `API_KEY` inside of rajaongkirapi_tests.py to make sure the api works
 
 Here's some sample while you runs the test over the console or terminal
 
