@@ -1,12 +1,13 @@
+from __future__ import unicode_literals
 import requests
 import json
 from json.encoder import JSONEncoder
-from httplib import OK, CREATED, NO_CONTENT
+from requests.status_codes import ok, created, no_content
 
-JNE = u'jne'
-POS = u'pos'
-TIKI = u'tiki'
-ALL_COURIER = u'all'
+JNE = 'jne'
+POS = 'pos'
+TIKI = 'tiki'
+ALL_COURIER = 'all'
 
 
 class ApiRequest(object):
@@ -62,8 +63,8 @@ class ApiErrorException(Exception):
 
 class RajaOngkirApi(object):
 
-    key_list = u'rajaongkir'
-    endpoint = u'http://rajaongkir.com/api/starter/'
+    key_list = 'rajaongkir'
+    endpoint = 'http://rajaongkir.com/api/starter/'
 
     def __init__(self, api_key):
         self.api_key = api_key
@@ -81,15 +82,15 @@ class RajaOngkirApi(object):
         """
 
         if not response_json:
-            raise ApiErrorException(u'Response Api is None, cannot fetch the status of api')
+            raise ApiErrorException('Response Api is None, cannot fetch the status of api')
 
-        status = response_json.get(u'status')
+        status = response_json.get('status')
 
         assert status is not None, \
-            u'Response Status is not Available'
+            'Response Status is not Available'
 
-        assert status.get(u'code') == OK, \
-            u'Response status not clear, should be any error occurred: {}'.format(status.get(u'description'))
+        assert status.get('code') == ok, \
+            'Response status not clear, should be any error occurred: {}'.format(status.get('description'))
 
     def __get(self, service_endpoint, params=None):
         """Separate GET request into individual method,
@@ -100,19 +101,19 @@ class RajaOngkirApi(object):
         :return: `dict` results of returned api
         """
         req_params = {
-            u'headers': {
-                u'Accept': u'application/json',
-                u'key': self.api_key
+            'headers': {
+                'Accept': 'application/json',
+                'key': self.api_key
             }
         }
 
         if params is not None:
-            req_params[u'url_parameters'] = params
+            req_params['url_parameters'] = params
 
         api = ApiRequest(endpoint=service_endpoint)
         response = api.get(**req_params)
 
-        return self.__grab(response.json()) if response.status_code == OK else None
+        return self.__grab(response.json()) if response.status_code == ok else None
 
     @staticmethod
     def __parse(response_json):
@@ -121,14 +122,14 @@ class RajaOngkirApi(object):
         :param response_json:
         :return:
         """
-        return response_json.get(u'results') if response_json is not None else None
+        return response_json.get('results') if response_json is not None else None
 
     def provinces(self):
         """Get list of all provinces
 
         :return:
         """
-        provinces = self.__get(u'{}province'.format(self.endpoint))
+        provinces = self.__get('{}province'.format(self.endpoint))
 
         self.__status(provinces)
 
@@ -140,7 +141,7 @@ class RajaOngkirApi(object):
         :param province_id:
         :return:
         """
-        province = self.__get(u'{}province'.format(self.endpoint), params={u'id': province_id})
+        province = self.__get('{}province'.format(self.endpoint), params={'id': province_id})
 
         self.__status(province)
 
@@ -151,7 +152,7 @@ class RajaOngkirApi(object):
 
         :return:
         """
-        cities = self.__get(u'{}city'.format(self.endpoint))
+        cities = self.__get('{}city'.format(self.endpoint))
 
         self.__status(cities)
 
@@ -163,7 +164,7 @@ class RajaOngkirApi(object):
         :param city_id:
         :return:
         """
-        city = self.__get(u'{}city'.format(self.endpoint), params={u'id': city_id})
+        city = self.__get('{}city'.format(self.endpoint), params={'id': city_id})
 
         self.__status(city)
 
@@ -175,7 +176,7 @@ class RajaOngkirApi(object):
         :param province_id:
         :return:
         """
-        city = self.__get(u'{}city'.format(self.endpoint), params={u'province': province_id})
+        city = self.__get('{}city'.format(self.endpoint), params={'province': province_id})
 
         self.__status(city)
 
@@ -188,7 +189,7 @@ class RajaOngkirApi(object):
         :param city_id: int
         :return:
         """
-        city = self.__get(u'{}city'.format(self.endpoint), params={u'id': city_id, u'province': province_id})
+        city = self.__get('{}city'.format(self.endpoint), params={'id': city_id, 'province': province_id})
 
         self.__status(city)
 
@@ -210,18 +211,18 @@ class RajaOngkirApi(object):
             u"courier": courier
         }
 
-        api = ApiRequest(endpoint=u'{}cost'.format(self.endpoint))
+        api = ApiRequest(endpoint='{}cost'.format(self.endpoint))
         response = api.post(
             headers={
-                u'key': self.api_key,
-                u'Accept': u'application/json',
-                u'Content-Type': u'application/json',
-                u'charset': u'utf8'
+                'key': self.api_key,
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'charset': 'utf8'
             },
             payload=post_data
         )
 
-        costs = self.__grab(response.json()) if response.status_code == OK else None
+        costs = self.__grab(response.json()) if response.status_code == ok else None
 
         self.__status(costs)
 
