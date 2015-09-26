@@ -9,7 +9,7 @@ If you have no `ApiKey` to use, you can create one here: [http://rajaongkir.com/
 ## Install
     # Directly install from last stable release
     
-    pip install git+ssh://git@github.com/slaveofcode/rajaongkir@1.0.2
+    pip install git+ssh://git@github.com/slaveofcode/rajaongkir@1.1.1
     
     # Or with official pypi
     
@@ -24,17 +24,22 @@ If you have no `ApiKey` to use, you can create one here: [http://rajaongkir.com/
     
     # get province list
     list_of_city = api.provinces()
+    # returned values will be a list of provinces [{'province': 'Jawa Barat', ...}]
     
     # get city list
     list_of_city = api.cities()
+    # returned values will be a list of cities [{'city_name': 'Bekasi', city_id: 55, ...}]
     
     # get cities based on province_id 
-    list_of_city = api.cities_by_province(province_id)
+    list_of_city = api.cities_by_province(9)
+    # [{'city_name': 'Bekasi', 'city_id': 55, 'type': 'Kota', ...}, {'city_name': 'Bandung', 'city_id': 23, 'type': 'Kota', ...}]
      
     # get city by id
-    city = api.city_by_id(city_id)
+    city = api.city_by_id(55)
+    # {'city_name': 'Bekasi', city_id: 55, ...}
     
     # get the cost (55 is Bekasi, 23 is Bandung, 1000 grams = 1 kg, 'all' = all courier
+    # available courier is 'all', 'jne', 'tiki' and 'pos'
     cost = api.cost_between_city(55, 23, 1000, 'all')
 
 
