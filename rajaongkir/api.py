@@ -2,7 +2,6 @@ from __future__ import unicode_literals
 import requests
 import json
 from json.encoder import JSONEncoder
-from requests.status_codes import ok, created, no_content
 
 JNE = 'jne'
 POS = 'pos'
@@ -19,14 +18,14 @@ class ApiRequest(object):
     def __init__(self, endpoint):
         self.endpoint = endpoint
 
-    def get(self, headers={}, url_parameters={}):
+    def get(self, headers=None, url_parameters={}):
         return requests.get(
             self.endpoint,
             params=url_parameters,
             headers=headers
         )
 
-    def post(self, headers={}, url_parameters={}, payload={}):
+    def post(self, headers=None, url_parameters={}, payload={}):
         return requests.post(
             self.endpoint,
             data=json.dumps(payload, cls=self.json_encoder_class),
@@ -34,7 +33,7 @@ class ApiRequest(object):
             headers=headers
         )
 
-    def put(self, headers={}, url_parameters={}, payload={}):
+    def put(self, headers=None, url_parameters={}, payload={}):
         return requests.put(
             self.endpoint,
             data=json.dumps(payload, cls=self.json_encoder_class),
@@ -42,14 +41,14 @@ class ApiRequest(object):
             headers=headers
         )
 
-    def delete(self, headers={}, url_parameters={}):
+    def delete(self, headers=None, url_parameters={}):
         return requests.delete(
             self.endpoint,
             params=url_parameters,
             headers=headers
         )
 
-    def options(self, headers={}, url_parameters={}):
+    def options(self, headers=None, url_parameters={}):
         return requests.options(
             self.endpoint,
             params=url_parameters,
@@ -89,7 +88,7 @@ class RajaOngkirApi(object):
         assert status is not None, \
             'Response Status is not Available'
 
-        assert status.get('code') == ok, \
+        assert status.get('code') == requests.codes.ok, \
             'Response status not clear, should be any error occurred: {}'.format(status.get('description'))
 
     def __get(self, service_endpoint, params=None):
@@ -113,7 +112,7 @@ class RajaOngkirApi(object):
         api = ApiRequest(endpoint=service_endpoint)
         response = api.get(**req_params)
 
-        return self.__grab(response.json()) if response.status_code == ok else None
+        return self.__grab(response.json()) if response.status_code == requests.codes.ok else None
 
     @staticmethod
     def __parse(response_json):
@@ -222,7 +221,7 @@ class RajaOngkirApi(object):
             payload=post_data
         )
 
-        costs = self.__grab(response.json()) if response.status_code == ok else None
+        costs = self.__grab(response.json()) if response.status_code == requests.codes.ok else None
 
         self.__status(costs)
 
