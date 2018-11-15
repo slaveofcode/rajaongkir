@@ -63,7 +63,7 @@ class ApiErrorException(Exception):
 class RajaOngkirApi(object):
 
     key_list = 'rajaongkir'
-    endpoint = 'http://rajaongkir.com/api/starter/'
+    endpoint = 'http://api.rajaongkir.com/starter/'
 
     def __init__(self, api_key):
         self.api_key = api_key
